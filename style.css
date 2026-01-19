@@ -457,3 +457,58 @@ footer {
         gap: 1rem;
     }
 }
+/* --- FIX 1: The Download Button --- */
+/* You had 'class="button"' in HTML but no CSS for it. 
+   I matched this to your orange submit button styles. */
+.button {
+    display: block;
+    width: 100%;
+    max-width: 600px; /* Matches your contact form width */
+    margin: 2rem auto; /* Centers the button */
+    padding: 1rem;
+    background-color: #FF8C00;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.button:hover {
+    background-color: #CC7000;
+}
+
+/* --- FIX 2: Centralized Landing Header --- */
+/* Replace your existing .landing-header block with this. 
+   Grid is better than Flexbox for centering elements when the sides are uneven. */
+.landing-header {
+    background-color: #f0f0f0;
+    padding: 1rem 2rem;
+    display: grid; 
+    grid-template-columns: 1fr auto 1fr; /* Left, Center (Logo), Right (Phone) */
+    align-items: center;
+    border-bottom: 3px solid #15316f;
+}
+
+/* Target the specific children inside the landing header to force alignment */
+.landing-header .logo-wrapper {
+    grid-column: 2;
+    justify-self: center;
+}
+
+.landing-header .header-contact {
+    grid-column: 3;
+    justify-self: end;
+}
+
+/* Keep your mobile tweak, but ensure it switches back to flex column */
+@media (max-width: 768px) {
+    .landing-header {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
